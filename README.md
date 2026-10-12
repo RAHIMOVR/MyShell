@@ -4,12 +4,15 @@ A basic command-line shell written in C. This project is designed to learn how o
 
 ## Features
 
-- **Command Loop:** Continuously prompts for input until `exit` is typed.
+- **Command Loop:** Continuously prompts for input until `exit` is typed or `Ctrl-D` is pressed.
 - **External Commands:** Runs system commands like `ls`, `pwd`, `date`, etc.
-- **Built-in Commands:** Supports `cd`, `echo`, and `exit` internally.
+- **Built-in Commands:** Supports `cd`, `echo`, `exit`, and `help` internally.
 - **I/O Redirection:** Supports input (`<`) and output (`>`) file redirection.
+- **Pipes:** Supports piping output from one command to another using `|`.
+- **Logical Operators:** Supports `&&` to run a command only if the previous command succeeds and `||` to run a command only if the previous command fails.
+- **Environment Variables:** Supports expanding environment variables using `$VAR`.
 - **Signal Handling:** Pressing `Ctrl-C` prints a new prompt instead of closing the shell.
-- **Memory Safety:** All memory is properly freed on exit. Verified with Valgrind.
+- **Memory Tracking:** Tracks allocated memory and displays the current allocation count when the shell exits.
 
 ## Requirements
 
@@ -37,9 +40,9 @@ make valgrind
 ## Current Limitations
 
 > ⚠️ The following features are not yet supported:
-> - Pipes (`|`)
-> - Environment variable expansion (`$VAR`)
-> - Logical operators (`&&`, `||`)
+> - Quoted arguments and arguments containing spaces
+> - Multiple pipes in a single command
+> - Advanced shell features such as command substitution and wildcard expansion
 
 ## License
 
